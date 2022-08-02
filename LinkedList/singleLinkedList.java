@@ -50,6 +50,24 @@ public class singleLinkedList {
          }
 
      }
+     public  void  insertAfter(int nextTo,int data){
+         Node newnode=new Node(data);
+         Node temp=head;
+         while (temp!=null && temp.data != nextTo){
+             temp=temp.next;
+         }
+         if(temp==null){
+           return;
+         }
+         if (temp==tail){
+             tail.next=newnode;
+             tail=newnode;
+             return;
+         }
+         newnode.next=temp.next;
+         temp.next=newnode;
+
+     }
      public  static void main(String arg[]){
          singleLinkedList List=new singleLinkedList();
          List.display();
@@ -57,6 +75,7 @@ public class singleLinkedList {
          List.addNode(20);
          List.display();
          List.delete(20);
+         List.insertAfter(10,35);
          List.display();
      }
 }
