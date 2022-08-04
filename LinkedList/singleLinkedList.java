@@ -68,6 +68,21 @@ public class singleLinkedList {
          temp.next=newnode;
 
      }
+     public void removeDuplicate(){
+         Node current=head;
+         while (current!=null){
+             Node next=current.next;
+             while (next!=null && next.data==current.data){
+                 next=next.next;
+             }
+             current.next=next;
+                     if(current==tail && current.data== next.data){
+                         tail=current;
+                         tail.next=null;
+                     }
+                     current=next;
+         }
+     }
      public  static void main(String arg[]){
          singleLinkedList List=new singleLinkedList();
          List.display();
